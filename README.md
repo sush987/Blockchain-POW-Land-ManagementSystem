@@ -6,11 +6,11 @@ This project aims to develop a system for land management with the following cha
 4. Implementation of Merkle tree to calculate root hash of all the transactions inside a block.
 5. User can view the transaction history that is related to a property.
 
-****Technology Used**: **
+# Technology Used: 
 - JavaScript
 - Node.js
 
-****HOW TO RUN THE PROJECT****
+# HOW TO RUN THE PROJECT
 To run this project, you will require following packages:
 *Run the following command to install sha256 package:
 
@@ -19,7 +19,7 @@ To run this project, you will require following packages:
 -Run the following command to install prompt package:
     ```	$ npm install --save prompts```
 
-****Working of Every Module:****
+# Working of Every Module:
 
 **blockchain.js file**
 1. Blockchain(): This function initializes an empty array called chain which will contain all the blocks in sequential order.It will also initialize an empty array called newTransaction which will contain all the transactions in chronological order.It will create the genesis block.
