@@ -12,12 +12,16 @@ This project aims to develop a system for land management with the following cha
 
 # HOW TO RUN THE PROJECT
 To run this project, you will require following packages:
-*Run the following command to install sha256 package:
 
-```$ npm install --save sha256```
+1.Run the following command to install sha256 package:
+```
+$ npm install --save sha256
+```
 
--Run the following command to install prompt package:
-    ```	$ npm install --save prompts```
+2.Run the following command to install prompt package:
+```
+$ npm install --save prompts
+```
 
 # Working of Every Module:
 
