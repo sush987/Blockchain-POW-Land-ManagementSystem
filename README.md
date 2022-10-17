@@ -1,3 +1,4 @@
+![Screenshot 2022-10-18 004508](https://user-images.githubusercontent.com/70815270/196263132-61354179-6f61-41fe-af76-dd2312a1fc54.png)
 # Blockchain-POW-Land-Management System
 This project aims to develop a system for land management with the following characteristics:
 1. To register new users to the system with previously owned property
