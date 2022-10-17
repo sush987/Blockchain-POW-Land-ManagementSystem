@@ -50,5 +50,21 @@ $ npm install --save prompts
 2.	buy():It takes userId and propertyId as parameters and checks if property is owned by someone, If yes then it will throw the error ‘Property already owned by someone’. If no, then it assigns the property to that user.
 3. sell(): It takes userId and propertyId as parameters and checks if userId is assigned to that property. If it is, then it returns ‘success’  and removes the link between the user and property.If it is not assigned then it throws the error ‘This is not your property’.
 
-**Screenshots:**
+# Screenshots
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Demo
+
+
 
