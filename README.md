@@ -6,47 +6,47 @@ This project aims to develop a system for land management with the following cha
 4. Implementation of Merkle tree to calculate root hash of all the transactions inside a block.
 5. User can view the transaction history that is related to a property.
 
-Technology Used: 
-•	JavaScript
-•	Node.js
+****Technology Used**: **
+- JavaScript
+- Node.js
 
-HOW TO RUN THE PROJECT
-	To run this project, you will require following packages:
-	Run the following command to install sha256 package:
-	$ npm install --save sha256
-	Run the following command to install prompt package:
-	$ npm install --save prompts
+****HOW TO RUN THE PROJECT****
+To run this project, you will require following packages:
+*Run the following command to install sha256 package:
 
-Working of Every Module:
-blockchain.js file
+```$ npm install --save sha256```
+
+-Run the following command to install prompt package:
+    ```	$ npm install --save prompts```
+
+****Working of Every Module:****
+
+**blockchain.js file**
 1. Blockchain(): This function initializes an empty array called chain which will contain all the blocks in sequential order.It will also initialize an empty array called newTransaction which will contain all the transactions in chronological order.It will create the genesis block.
-
-3. createNewBlock()
+2. createNewBlock()
 It will have parameters of nonce, hash of previous block and hash of current block.It will create a new block with all its data and add it to the array "chain".
-4. getLastBlock()
+3. getLastBlock()
 This will return the last block in the array "chain".
-5. createNewTrans()
+4. createNewTrans()
 This will take property Id, seller Id & buyer Id as parameters. It will create a new structure called 'newTransactions' which will have seller, buyer, and property Id. This transaction will be added into the array 'newTransaction'.
-6. hashBlock():
+5. hashBlock():
 This will take hash of previous block, merkel root & Nonce as parameters. This will use sha256 algorithm to calculate the hash of the block using all the parameters and current time. 
-
-7. POW():
+6. POW():
 This will initialize the nonce as zero and call the hashBlock() function by giving current nonce as paramters and checking if the hash calculated has four zeroes at the start, if not then it will increment the value of nonce till it finds a hash that has four zeroes at the start. This function returns the calculated hash of the current block, timestamp and also the merkel root.
-
-8. merkelRoot():
+7. merkelRoot():
 It takes number of transaction as a parameter. It implements the merkel tree to calculate the merkel root .
 
- registration.js file
+**registration.js file**
  1.Registration(): It initializes the userId array which will contains the ids of all the registered users.It will also initialize the propertyId array which will contain Ids from 1 to 10.
 
  2. addUser():
 This function will check if the property Id requested by the user is available in the propertyId array and if it is present the it will register the user by adding his Id in userId array, If not then it will throw the error ‘Property doesn’t exist in the system’.
 
- test.js:
+**test.js:**
 It will include all the files in the project and give them object name. It will create instances of all the js files which then will be used to access all the functions from these files. This file creates a menu which displays all the options to be used to use all the features of the project like buying, selling and mining the block. This file is to be run to use this project.
 To run this file use command “node test.js” in the terminal.
 
-transaction.js file
+**transaction.js file**
 1.	buySell():
 It initializes the available property array called availableProp which has values from 1 to 10. It also initializes array called usersRegistered.
 
@@ -56,5 +56,5 @@ It takes userId and propertyId as parameters and checks if property is owned by 
 3.	sell()
 It takes userId and propertyId as parameters and checks if userId is assigned to that property. If it is, then it returns ‘success’  and removes the link between the user and property.If it is not assigned then it throws the error ‘This is not your property’.
 
-Screenshots:
+**Screenshots:**
 
