@@ -35,18 +35,19 @@ $ npm install --save prompts
 7. merkelRoot(): It takes number of transaction as a parameter. It implements the merkel tree to calculate the merkel root .
 
 **registration.js file**
- 1.Registration(): It initializes the userId array which will contains the ids of all the registered users.It will also initialize the propertyId array which will contain Ids from 1 to 10.
-
- 2. addUser(): This function will check if the property Id requested by the user is available in the propertyId array and if it is present the it will register the user by adding his Id in userId array, If not then it will throw the error ‘Property doesn’t exist in the system’.
+1. Registration(): It initializes the userId array which will contains the ids of all the registered users.It will also initialize the propertyId array which will contain Ids from 1 to 10.
+2. addUser(): This function will check if the property Id requested by the user is available in the propertyId array and if it is present the it will register the user by adding his Id in userId array, If not then it will throw the error ‘Property doesn’t exist in the system’.
 
 **test.js:**
-It will include all the files in the project and give them object name. It will create instances of all the js files which then will be used to access all the functions from these files. This file creates a menu which displays all the options to be used to use all the features of the project like buying, selling and mining the block. This file is to be run to use this project.
-To run this file use command “node test.js” in the terminal.
+1. It will include all the files in the project and give them object name.
+2. It will create instances of all the js files which then will be used to access all the functions from these files. 
+3. This file creates a menu which displays all the options to be used to use all the features of the project like buying, selling and mining the block. This file is to be run to use this project.
+4. To run this file use command “node test.js” in the terminal.
 
 **transaction.js file**
 1.	buySell(): It initializes the available property array called availableProp which has values from 1 to 10. It also initializes array called usersRegistered.
 2.	buy():It takes userId and propertyId as parameters and checks if property is owned by someone, If yes then it will throw the error ‘Property already owned by someone’. If no, then it assigns the property to that user.
-3.sell(): It takes userId and propertyId as parameters and checks if userId is assigned to that property. If it is, then it returns ‘success’  and removes the link between the user and property.If it is not assigned then it throws the error ‘This is not your property’.
+3. sell(): It takes userId and propertyId as parameters and checks if userId is assigned to that property. If it is, then it returns ‘success’  and removes the link between the user and property.If it is not assigned then it throws the error ‘This is not your property’.
 
 **Screenshots:**
 
