@@ -1,39 +1,32 @@
-# Blockchain-POW-Land-ManagementSystem
-
-
-This project aims at building land management system with the following features: 
+# Blockchain-POW-Land-Management System
+This project aims to develop a system for land management with the following characteristics:
 1. To register new users to the system with previously owned property
 2. The user can buy and sell the property.
 3. Proof Of Work(PoW) consensus algorithm is incorporated to improve the security of the blockchain.
 4. Implementation of Merkle tree to calculate root hash of all the transactions inside a block.
 5. User can view the transaction history that is related to a property.
 
+Technology Used: 
+•	JavaScript
+•	Node.js
 
-Installation
+HOW TO RUN THE PROJECT
+	To run this project, you will require following packages:
+	Run the following command to install sha256 package:
+	$ npm install --save sha256
+	Run the following command to install prompt package:
+	$ npm install --save prompts
 
-To run this project, you will require following packages:
-1.Run the following command to install sha256 package:
-$ npm install --save sha256
-
-2.Run the following command to install prompt package:
-$ npm install --save prompts
-
+Working of Every Module:
 blockchain.js file
-1. Blockchain(): This function initializes an empty array called chain which will contain all the blocks in sequential order.
-It will also initialize an empty array called newTransaction which will contain all the transactions in chronological order.
-It will create the genesis block.
+1. Blockchain(): This function initializes an empty array called chain which will contain all the blocks in sequential order.It will also initialize an empty array called newTransaction which will contain all the transactions in chronological order.It will create the genesis block.
 
 3. createNewBlock()
-It will have parameters of nonce, hash of previous block and hash of current block.
-It will create a new block with all its data and add it to the array "chain".
-
+It will have parameters of nonce, hash of previous block and hash of current block.It will create a new block with all its data and add it to the array "chain".
 4. getLastBlock()
 This will return the last block in the array "chain".
-
 5. createNewTrans()
 This will take property Id, seller Id & buyer Id as parameters. It will create a new structure called 'newTransactions' which will have seller, buyer, and property Id. This transaction will be added into the array 'newTransaction'.
-
-
 6. hashBlock():
 This will take hash of previous block, merkel root & Nonce as parameters. This will use sha256 algorithm to calculate the hash of the block using all the parameters and current time. 
 
@@ -43,10 +36,6 @@ This will initialize the nonce as zero and call the hashBlock() function by givi
 8. merkelRoot():
 It takes number of transaction as a parameter. It implements the merkel tree to calculate the merkel root .
 
-
-
- 
- 
  registration.js file
  1.Registration(): It initializes the userId array which will contains the ids of all the registered users.It will also initialize the propertyId array which will contain Ids from 1 to 10.
 
@@ -65,10 +54,7 @@ It initializes the available property array called availableProp which has value
 It takes userId and propertyId as parameters and checks if property is owned by someone, If yes then it will throw the error ‘Property already owned by someone’. If no, then it assigns the property to that user.
 
 3.	sell()
-It takes userId and propertyId as parameters and checks if userId is assigned to that property. If it is, then it returns ‘success’  and removes the link between the user and property.
-If it is not assigned then it throws the error ‘This is not your property’.
+It takes userId and propertyId as parameters and checks if userId is assigned to that property. If it is, then it returns ‘success’  and removes the link between the user and property.If it is not assigned then it throws the error ‘This is not your property’.
 
- 
-
-
+Screenshots:
 
