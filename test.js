@@ -5,126 +5,17 @@ const buySellFunction = new Transaction();
 const bitcoin = new Blockchain();
 const userReg = new Registration();
 const SHA256 = require('sha256');
-const express = require('express');
 const buySell = require('./transaction');
 const prompt = require('prompt-sync')();
 const _prevHash = bitcoin.chain[0].prevHash;
-var app = express();
-/*const currentBlockData = [
-    {
-        amount:10,
-        sender:"wfwefqwef",
-        reciever: "wefwe",
-    },
-    {
-        amount:1,
-        sender:"wfwefqwef",
-        reciever: "wefwe",
-    },
-    {
-        amount:105,
-        sender:"wfwefqwef",
-        reciever: "wefwe",
-    },
-    {
-        amount:1067,
-        sender:"wfwefqwef",
-        reciever: "wefwe",
-    },
-]*/
-/*const merkelRoot = function(_leafNodes) {
-    const leafNodes = _leafNodes ;
-    let nodePerItr = leafNodes;
-    
-        this.nodeArr = [];
-        let low = 0;
-        let h = low+1;
-        let i = 0;
-        let j = 0;
-        while(j < leafNodes){
-            nodeArr[j] =  SHA256(JSON.stringify(currentBlockData[j]));
-            j++;
-        }
 
-        while(nodePerIte >1){
+console.log(bitcoin.chain[0]);//Prints the genesis block in terminal
 
-            if(nodePerItr % 2 == 0){
-                while(h<=nodePerItr-1){
-                  nodeArr[i] =  SHA256(nodeArr[low] + nodeArr[h]);
-                  low = h+1;
-                  h = low + 1;
-                  i++;
-              }
-              nodePerItr = nodePerItr/2;
-          }
-          else {
-  
-                while(h<=nodePerItr-1){
-                  nodeArr[i] =  SHA256(nodeArr[low] + nodeArr[h]);
-                  low = h+1;
-                  h = low + 1;
-                  i++;
-                  if(low == nodePerItr - 1){
-                      h = low ;
-                      continue;
-                  }
-              }
-              nodePerItr = (nodePerItr + 1)/2;
-          }
-
-        }
-
-        
-
-        /*while(leafNode != 0){
-            let low = 0;
-            let h = low+1;
-            let i = 0;
-
-            if(nodePerItr % 4 == 0){
-                while(h<=nodePerItr-1){
-                nodeArr[i] =  SHA256(nodeArr[low] + nodeArr[h]);
-                low = h+1;
-                h = low + 1;
-                i++;
-                }
-                nodePerItr = nodePerItr/2;
-            }
-            else if(nodePerItr % 2 == 0 && nodePerNode % 4 != 0){
-                while(h<=nodePerItr-1){
-                nodeArr[i] =  SHA256(nodeArr[low] + nodeArr[h]);
-                low = h+1;
-                h = low + 1;
-                i++;
-                }
-                nodePerItr = nodePerItr/2 ;
-            }
-            else if(nodePerItr % 2 != 0){
-
-                while(h<=nodePerItr-1){
-                    nodeArr[i] =  SHA256(nodeArr[low] + nodeArr[h]);
-                    low = h+1;
-                    h = low + 1;
-                    i++;
-                    if(low == nodePerItr - 1){
-                        h = low ;
-                    }
-                }
-                
-            }
-        }
-    }
-    else {
-        leafNodes = //number of TX 
-    }*/
-    
-//}
-console.log(bitcoin.chain[0]);
 var _transactionNum = 0;
-var n = 1;
+var n = 1; //to 
 var m = 1;
-var TXLength = bitcoin.newTransaction.length ;
-_transactionNum = _transactionNum + TXLength ;
+var TXLength = 0 ; //to store number of new transactions created
+
 function options() {
 
     
@@ -150,7 +41,8 @@ var whatNext = options();
 while(whatNext !=6 ){
 
 
-if(whatNext == 1){
+if(whatNext == 1){ //this option will allow us to see the transaction history of a particular given property
+    //the propertyId is taken as an input and searched 
     var transID = prompt("Property ID : ");
     for(let i = 0 ; i < bitcoin.newTransaction.length ; i++){
         if(transID == bitcoin.newTransaction[i].amount){
@@ -158,96 +50,50 @@ if(whatNext == 1){
             break;
         }
     }
+    let owned = 0;
+    //the transaction history is stored in the "transHistory" array of the buySellFunction
+    for(let j = 0 ; j < buySellFunction.transHistory.length - 1 ; j++){
+        if(transID == buySellFunction.transHistory[2*j + 1]){
+            if(owned == 0){
+                //the buyer of the property
+                console.log("Owner : " +  buySellFunction.transHistory[2*j] + " Property Id : " + buySellFunction.transHistory[2*j+1]);
+                owned = 1;
+            }
+            
+            else {
+                //the seller of the property
+                console.log("seller : " +  buySellFunction.transHistory[2*j] + " Property Id : " + buySellFunction.transHistory[2*j+1]);
+                owned = 0;
+            }
+    
+        }
+    }
     whatNext = options();
 }
+
 else if(whatNext == 2){
-
-    if(_transactionNum > 0 && TXLength == 0){
-        if(_transactionNum > 0){
-            console.log(bitcoin.POW(_prevHash));
-            if(_transactionNum != 1){
-                _transactionNum = _transactionNum - 2 ;
-            }
-            
-            else
-            break;
-        }
-        else {
-            break;
-        }
-    } //only check  0
-    else if (_transactionNum == 0 && TXLength > 0){
     
-        if(n > 0){
-            TXLength = bitcoin.newTransaction.length ;
-            n--;
-        }
-        else {
-            TXLength = 0;
-        }
-         
-        _transactionNum = _transactionNum + TXLength ;
-    
-    
-    
-        if(_transactionNum > 0){
-            console.log("sdojfnawjo");
-            console.log(bitcoin.POW(_prevHash));
-            if(_transactionNum != 1){
-                _transactionNum = _transactionNum - 2 ;
-            }
-            
-            else
-            break;
-        }
-        else {
-            break;
-        }
-    
-    
-    }
-    else if (_transactionNum > 0 && TXLength > 0){
-    
-        if(n > 0){
-            TXLength = bitcoin.newTransaction.length ;
-            n--;
-        }
-    
-        if(m > 0){
-            _transactionNum = _transactionNum + TXLength ;
-            m--;
-        }
-    
-        if(_transactionNum > 0){
-            console.log(bitcoin.POW(_prevHash));
-            if(_transactionNum != 1){
-                _transactionNum = _transactionNum - 2 ;
-            }
-            
-            else
-            break;
-        }
-        else {
-            break;
-        }
-    }
-    //console.log("\nWork in progress !!!!")
-
-   /* if(n > 0){
+    if(m > 0){//sell 
+        //the new sell transaction is added into the newTransaction array which will be used in mining the block
         TXLength = bitcoin.newTransaction.length ;
+        _transactionNum = TXLength ;
+        m--;
+    }
+
+    if(n > 0){//buy 
+        TXLength = bitcoin.newTransaction.length ;
+        _transactionNum = TXLength;
         n--;
     }
     else {
         TXLength = 0;
     }
      
-    _transactionNum = _transactionNum + TXLength ;
-
-
 
     if(_transactionNum > 0){
-        console.log(bitcoin.POW(_prevHash));
+        console.log(bitcoin.POW(_prevHash));//the new inputted transactions are send to the bitcoin.Pow function to add them to the block
         if(_transactionNum != 1){
+            //
             _transactionNum = _transactionNum - 2 ;
         }
         
@@ -256,33 +102,46 @@ else if(whatNext == 2){
     }
     else {
         break;
-    }*/
+    }
     
 
 }
+
+
 else if(whatNext == 3){
+    //this option is used to register new users
     prompt("Click Enter to register yourself ");
+    //userId and propertyId is taken as an input
     var _userId =  prompt("User Id : ") ;
     var _propertyId = prompt("Property Id :");
 
-    console.log(userReg.addUser(_userId,_propertyId));
-
+    console.log(userReg.addUser(_userId,_propertyId));//the addUser function adds the user and propertyId to the array of new users
+//the addUser will check if user already exists or if the property already belongs to someone
     whatNext = options();
 }
-else if(whatNext == 4){
 
+else if(whatNext == 4){
+//the buy transaction input function
+
+//userId and propertyId is taken as an input
     var buyer  = prompt('Buyer Id : ');
     var propertyToBuys = prompt('Property Id : ');
 
-    console.log(buySellFunction.buy(buyer , propertyToBuys));
+    console.log(buySellFunction.buy(buyer , propertyToBuys));//the buy function is called along with sending the inputted parameters
     bitcoin.createNewTrans(buyer , propertyToBuys , 0 );
 
     whatNext = options();
     
 }
+
 else if(whatNext == 0){
     
-    
+    //new transactions can be inoutted and mined dyamically
+    //this option was created to explore the properties we created with the merkle tree
+    //the buy and sell options are used as actual transactions
+
+
+    //we take number of transactions as input before taking the transactions input
     _transactionNum = prompt("Number of transactions : ");
     
     for(let i = 0 ; i< _transactionNum ; i++){
@@ -302,12 +161,15 @@ else if(whatNext == 0){
 
     whatNext = options();
 }
+
 else {
+    //sell function 
+    //this is similar to the buy function 
     var seller  = prompt('Seller Id : ');
-    console.log(buySellFunction.sell(seller));
+    var sellerPropID = prompt('Property ID : ');
+    console.log(buySellFunction.sell(seller , sellerPropID));
+    bitcoin.createNewTrans(seller , sellerPropID , 0 );
     whatNext = options();
 }
 
 }
-//console.log(bitcoin.chainShow(0));
-//console.log(bitcoin.merkelRoot(4)); 
