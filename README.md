@@ -50,6 +50,10 @@ $ npm install --save prompts
 2.	buy():It takes userId and propertyId as parameters and checks if property is owned by someone, If yes then it will throw the error ‘Property already owned by someone’. If no, then it assigns the property to that user.
 3. sell(): It takes userId and propertyId as parameters and checks if userId is assigned to that property. If it is, then it returns ‘success’  and removes the link between the user and property.If it is not assigned then it throws the error ‘This is not your property’.
 
+
+
+
+
 # Screenshots
 
 
@@ -65,6 +69,14 @@ $ npm install --save prompts
 
 
 # Demo
+Please find the implementation videos for this project here:
+
+The implmentation of BuySell Function, Mining the BuySell transactions and searching the history of a property using it's propertyID:
+https://user-images.githubusercontent.com/85601898/196414718-87de7848-348e-4e1c-a586-94a78ea36a56.mp4
+
+The New user registration into the blockchain is implemented here:
+https://user-images.githubusercontent.com/85601898/196415032-d6239eb6-c41e-454e-b55c-1efaac11e3db.mp4
+
 
 
 
